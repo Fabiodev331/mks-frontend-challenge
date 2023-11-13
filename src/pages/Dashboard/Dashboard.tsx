@@ -5,13 +5,13 @@ import Header from "../../components/Header";
 import { IProduct } from "../../interfaces";
 import api from "../../services/api";
 import { Container } from "./styles";
-import MainSkeleton from "../../components/MainSkeleton";
+//import MainSkeleton from "../../components/MainSkeleton";
 import { useDispatch } from "react-redux";
 import { addCart } from "../../features/productSlice";
 
 const Dashboard = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  //const [loading, setLoading] = useState<boolean>(true);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const Dashboard = () => {
       .get("")
       .then((response) => {
         setProducts(response.data.products);
-        setLoading(false);
+        //setLoading(false);
       })
       .catch((error) => {
         console.log(error);
@@ -35,7 +35,7 @@ const Dashboard = () => {
       <Header />
       <div className="list-products">
         <div className="div-cards">
-          {loading && <MainSkeleton />}
+          
           {products.map((product, index) => (
             <Card
               key={index}
